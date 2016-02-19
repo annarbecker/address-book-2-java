@@ -25,7 +25,6 @@ public class App {
       String birthMonth = request.queryParams("birthMonth");
       Contact newContact = new Contact(firstName, lastName, birthMonth);
 
-      model.put("contacts", newContact);
       model.put("allContacts", Contact.all());
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
