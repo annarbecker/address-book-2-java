@@ -1,0 +1,22 @@
+<h1>index.vtl</h1>
+
+<h1>Address Book</h1>
+<form action="/contacts" method="post">
+  <input id='contactId' name='contactId' type='hidden' value='$contact.getId()'>
+  <label for="firstName">First Name</label>
+  <input type="text" name="firstName" id="firstName" required>
+
+  <label for="lastName">Last Name</label>
+  <input type="text" name="lastName" id="lastName" required>
+
+  <label for="birthMonth">Birth Month</label>
+  <input type="text" name="birthMonth" id="birthMonth" required>
+
+  <button type="submit" class="btn btn-success">Add Contact</button>
+</form>
+
+<hr>
+<h2>My Contacts</h2>
+#foreach($contact in $allContacts)
+<h4><a href="/contacts/$contact.getId()">$contact.wholeName()</a></h4>
+#end

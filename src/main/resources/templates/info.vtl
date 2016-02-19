@@ -1,0 +1,25 @@
+<h2>Contact Information</h2>
+
+<h3>$contact.wholeName()</h3>
+<h4>Birth Month: $contact.getBirthMonth()</h4>
+<h4>Phone:</h4>
+<ul>
+  #foreach($phone in $allPhones)
+    <li>$phone.wholePhone()</li>
+  #end
+</ul>
+
+
+
+<form action="/contacts/$contact.getId()" method="post">
+  <input id='contactId' name='contactId' type='hidden' value='$contact.getId()'>
+  <select class="form-control" name="phoneType">
+    <option name="phoneType" value="home">Home</option>
+    <option name="phoneType" value="cell">Cell</option>
+    <option name="phoneType" value="work">Work</option>
+  </select>
+  <input type="text" name="phoneNumber" id="phoneNumber" required>
+  <button type="submit" class="btn btn-info">Add Phone</button>
+</form>
+
+<a href="/">Home</a>
